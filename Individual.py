@@ -13,14 +13,22 @@ class Individual:
 	def setBit(self, n, value):
 		self.chromosome[n] = value
 
-	def toogleBit(self, n):
+	def toggleBit(self, n):
 		self.chromosome[n] = not self.chromosome[n]
 
-	def getBit(slef, n):
+	def getBit(self, n):
 		return self.chromosome[n]
 
 	def size(self):
 		return self.lenght
+
+	def copy(self):
+		copy = Individual(self.lenght)
+		copy.chromosome = []
+		for gen in self.chromosome:
+			copy.chromosome.append(gen)
+		copy.evaluation = self.evaluation
+		return copy
 
 	#TODO implement individual sons
 	def cross(self, n, another):
