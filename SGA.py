@@ -75,6 +75,12 @@ class SGA:
 				new_population += individual_1.cross(cross_point, individual_2)
 			else:
 				new_population += [individual_1, individual_2]
+
+                i = 0
+                while len(new_population) < self.population_size:
+                    new_population.append(self.population[i])
+                    i += 1
+
 		self.population = new_population
 
 	def mutate(self):
