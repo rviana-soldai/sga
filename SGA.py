@@ -65,7 +65,6 @@ class SGA:
     def cross(self):
         c = Coin(self.cross_probability)
         new_population = []
-        j = 0
         
         for i in range(int(self.population_size)//2):
             individual_1 = self.population[i*2]
@@ -76,12 +75,10 @@ class SGA:
                 new_population += individual_1.cross(cross_point, individual_2)
             else:
                 new_population += [individual_1, individual_2]
-            j = i
             
-        while len(new_population) < self.population_size:
-            new_population.append(self.population[j])
-            j += 1
-        
+        if self.population_size %2 != 0:
+            new_population.append(self.population[-1])
+
         self.population = new_population
 
     def mutate(self):
