@@ -33,12 +33,12 @@ print(sons[1].print())
 
 #population_size, tournament_size, generations, 
 #chromosome_size, mutation_probability, cross_probability
-sga = SGA(100, 5, 100, 10, 0.05, 0.95)
+sga = SGA(101, 5, 100, 10, 0.05, 0.95)
 plotError(sga.crossValidation(), 'figura_error_all_1')
 print("Best individual all ones " + sga.best.print() + " -> Score: " + str(sga.best.evaluation))
 
 #Seven Ones exactly
-svo = SevenOnes(100, 5, 100, 10, 0.05, 0.95)
+svo = SevenOnes(99, 5, 100, 10, 0.05, 0.95)
 plotError(svo.crossValidation(), 'figura_error_7_1')
 print("Best individual seven ones " + svo.best.print() + " -> Score: " + str(svo.best.evaluation))
 
